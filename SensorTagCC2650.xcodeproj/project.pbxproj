@@ -13,6 +13,8 @@
 		317247D01F8D0B60007B1ECF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 317247CE1F8D0B60007B1ECF /* Main.storyboard */; };
 		317247D21F8D0B60007B1ECF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 317247D11F8D0B60007B1ECF /* Assets.xcassets */; };
 		317247D51F8D0B60007B1ECF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 317247D31F8D0B60007B1ECF /* LaunchScreen.storyboard */; };
+		31B600101F8D1E2900BCE913 /* SensorTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B6000F1F8D1E2900BCE913 /* SensorTagViewController.swift */; };
+		31B600121F8D268100BCE913 /* CBCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B600111F8D268100BCE913 /* CBCharacteristic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		317247D11F8D0B60007B1ECF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		317247D41F8D0B60007B1ECF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		317247D61F8D0B60007B1ECF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		31B6000F1F8D1E2900BCE913 /* SensorTagViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorTagViewController.swift; sourceTree = "<group>"; };
+		31B600111F8D268100BCE913 /* CBCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBCharacteristic.swift; sourceTree = "<group>"; };
 		73CA5B6818B316D945630E52 /* Pods-SensorTagCC2650.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SensorTagCC2650.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SensorTagCC2650/Pods-SensorTagCC2650.debug.xcconfig"; sourceTree = "<group>"; };
 		8BA4FB1D939C2367074887D3 /* Pods-SensorTagCC2650.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SensorTagCC2650.release.xcconfig"; path = "Pods/Target Support Files/Pods-SensorTagCC2650/Pods-SensorTagCC2650.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,6 +71,8 @@
 				317247D11F8D0B60007B1ECF /* Assets.xcassets */,
 				317247D31F8D0B60007B1ECF /* LaunchScreen.storyboard */,
 				317247D61F8D0B60007B1ECF /* Info.plist */,
+				31B6000F1F8D1E2900BCE913 /* SensorTagViewController.swift */,
+				31B600111F8D268100BCE913 /* CBCharacteristic.swift */,
 			);
 			path = SensorTagCC2650;
 			sourceTree = "<group>";
@@ -123,6 +129,7 @@
 				TargetAttributes = {
 					317247C61F8D0B60007B1ECF = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 9QXK3B8LAC;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -223,6 +230,8 @@
 			files = (
 				317247CD1F8D0B60007B1ECF /* ViewController.swift in Sources */,
 				317247CB1F8D0B60007B1ECF /* AppDelegate.swift in Sources */,
+				31B600121F8D268100BCE913 /* CBCharacteristic.swift in Sources */,
+				31B600101F8D1E2900BCE913 /* SensorTagViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,10 +355,13 @@
 			baseConfigurationReference = 73CA5B6818B316D945630E52 /* Pods-SensorTagCC2650.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 9QXK3B8LAC;
 				INFOPLIST_FILE = SensorTagCC2650/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.mani3.SensorTagCC2650;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -359,10 +371,13 @@
 			baseConfigurationReference = 8BA4FB1D939C2367074887D3 /* Pods-SensorTagCC2650.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 9QXK3B8LAC;
 				INFOPLIST_FILE = SensorTagCC2650/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.mani3.SensorTagCC2650;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -386,6 +401,7 @@
 				317247DB1F8D0B60007B1ECF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
