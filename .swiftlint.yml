@@ -1,0 +1,15 @@
+disabled_rules:
+  - line_length
+opt_in_rules:
+  - empty_count
+included:
+  - SensorTagCC2650 
+excluded:
+  - Pods
+
+force_cast: warning
+force_try: warning
+variable_name:
+  min_length: 1
+type_name:
+  min_length: 1

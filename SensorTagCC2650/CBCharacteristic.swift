@@ -10,7 +10,7 @@ import Foundation
 import CoreBluetooth
 
 extension CBCharacteristic {
-    
+
     var propertyName: String {
         var name = [String]()
         if properties.rawValue & CBCharacteristicProperties.broadcast.rawValue != 0 {

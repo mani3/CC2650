@@ -13,14 +13,14 @@ import CoreBluetooth
 
 class SensorTagViewController: UIViewController {
     let dispose = DisposeBag()
-    
+
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var logView: UITextView!
-    
+
     var centralManager: CBCentralManager?
     var peripheral: CBPeripheral?
     var characteristics = Variable<[CBCharacteristic]>([])
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,7 +31,7 @@ class SensorTagViewController: UIViewController {
                 cell.detailTextLabel?.text = item.uuid.uuidString
             }
             .addDisposableTo(dispose)
-        
+
         tableView.rx.modelSelected(CBCharacteristic.self)
             .subscribe(onNext: { [weak self] (characteristic) in
                 if characteristic.properties.rawValue & CBCharacteristicProperties.read.rawValue != 0 {
@@ -40,7 +40,7 @@ class SensorTagViewController: UIViewController {
             })
             .addDisposableTo(dispose)
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if let manager = centralManager, let peripheral = peripheral {
@@ -50,7 +50,7 @@ class SensorTagViewController: UIViewController {
             dismiss(animated: true) {}
         }
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if let manager = centralManager, let peripheral = peripheral {
@@ -63,15 +63,15 @@ class SensorTagViewController: UIViewController {
 // MARK: - CBCentralManagerDelegate
 
 extension SensorTagViewController: CBCentralManagerDelegate {
-    
+
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
     }
-    
+
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         peripheral.delegate = self
         peripheral.discoverServices(nil)
     }
-    
+
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
     }
 }
@@ -79,7 +79,7 @@ extension SensorTagViewController: CBCentralManagerDelegate {
 // MARK: - CBPeripheralDelegate
 
 extension SensorTagViewController: CBPeripheralDelegate {
-    
+
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         if let error = error {
             NSLog("%@, %@", #function, error.localizedDescription)
@@ -93,7 +93,7 @@ extension SensorTagViewController: CBPeripheralDelegate {
             peripheral.discoverCharacteristics(nil, for: service)
         }
     }
-    
+
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         if let error = error {
             NSLog("%@, %@", #function, error.localizedDescription)
@@ -107,13 +107,13 @@ extension SensorTagViewController: CBPeripheralDelegate {
             self.characteristics.value.append(characteristic)
         }
     }
-    
+
     func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
         if let error = error {
             NSLog("%@, %@", #function, error.localizedDescription)
         }
     }
-    
+
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         if let error = error {
             NSLog("%@, %@", #function, error.localizedDescription)
@@ -139,7 +139,7 @@ extension SensorTagViewController: CBPeripheralDelegate {
 // MARK: - UITextView
 
 extension UITextView {
-    
+
     func appendLog(text: String, animated: Bool = true) {
         DispatchQueue.main.async {
             let formatter: DateFormatter = DateFormatter()
