@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		29DF892CA1AA6264C522FFC1 /* Pods_SensorTagCC2650.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30AD918ADD9E566DC866A158 /* Pods_SensorTagCC2650.framework */; };
+		312B15F61F90F56D00E5966A /* CC2650.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312B15F51F90F56D00E5966A /* CC2650.swift */; };
 		317247CB1F8D0B60007B1ECF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317247CA1F8D0B60007B1ECF /* AppDelegate.swift */; };
 		317247CD1F8D0B60007B1ECF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317247CC1F8D0B60007B1ECF /* ViewController.swift */; };
 		317247D01F8D0B60007B1ECF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 317247CE1F8D0B60007B1ECF /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		30AD918ADD9E566DC866A158 /* Pods_SensorTagCC2650.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SensorTagCC2650.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		312B15F51F90F56D00E5966A /* CC2650.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CC2650.swift; sourceTree = "<group>"; };
 		317247C71F8D0B60007B1ECF /* SensorTagCC2650.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SensorTagCC2650.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		317247CA1F8D0B60007B1ECF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		317247CC1F8D0B60007B1ECF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				317247D61F8D0B60007B1ECF /* Info.plist */,
 				31B6000F1F8D1E2900BCE913 /* SensorTagViewController.swift */,
 				31B600111F8D268100BCE913 /* CBCharacteristic.swift */,
+				312B15F51F90F56D00E5966A /* CC2650.swift */,
 			);
 			path = SensorTagCC2650;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				317247CB1F8D0B60007B1ECF /* AppDelegate.swift in Sources */,
 				31B600121F8D268100BCE913 /* CBCharacteristic.swift in Sources */,
 				31B600101F8D1E2900BCE913 /* SensorTagViewController.swift in Sources */,
+				312B15F61F90F56D00E5966A /* CC2650.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
