@@ -14,6 +14,7 @@
 		317247D01F8D0B60007B1ECF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 317247CE1F8D0B60007B1ECF /* Main.storyboard */; };
 		317247D21F8D0B60007B1ECF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 317247D11F8D0B60007B1ECF /* Assets.xcassets */; };
 		317247D51F8D0B60007B1ECF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 317247D31F8D0B60007B1ECF /* LaunchScreen.storyboard */; };
+		3196A0611F923C1A0039A879 /* Data+CC2650.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3196A0601F923C1A0039A879 /* Data+CC2650.swift */; };
 		31B600101F8D1E2900BCE913 /* SensorTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B6000F1F8D1E2900BCE913 /* SensorTagViewController.swift */; };
 		31B600121F8D268100BCE913 /* CBCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B600111F8D268100BCE913 /* CBCharacteristic.swift */; };
 /* End PBXBuildFile section */
@@ -28,6 +29,7 @@
 		317247D11F8D0B60007B1ECF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		317247D41F8D0B60007B1ECF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		317247D61F8D0B60007B1ECF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3196A0601F923C1A0039A879 /* Data+CC2650.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+CC2650.swift"; sourceTree = "<group>"; };
 		31B6000F1F8D1E2900BCE913 /* SensorTagViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorTagViewController.swift; sourceTree = "<group>"; };
 		31B600111F8D268100BCE913 /* CBCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBCharacteristic.swift; sourceTree = "<group>"; };
 		73CA5B6818B316D945630E52 /* Pods-SensorTagCC2650.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SensorTagCC2650.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SensorTagCC2650/Pods-SensorTagCC2650.debug.xcconfig"; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				31B6000F1F8D1E2900BCE913 /* SensorTagViewController.swift */,
 				31B600111F8D268100BCE913 /* CBCharacteristic.swift */,
 				312B15F51F90F56D00E5966A /* CC2650.swift */,
+				3196A0601F923C1A0039A879 /* Data+CC2650.swift */,
 			);
 			path = SensorTagCC2650;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 			files = (
 				317247CD1F8D0B60007B1ECF /* ViewController.swift in Sources */,
 				317247CB1F8D0B60007B1ECF /* AppDelegate.swift in Sources */,
+				3196A0611F923C1A0039A879 /* Data+CC2650.swift in Sources */,
 				31B600121F8D268100BCE913 /* CBCharacteristic.swift in Sources */,
 				31B600101F8D1E2900BCE913 /* SensorTagViewController.swift in Sources */,
 				312B15F61F90F56D00E5966A /* CC2650.swift in Sources */,
