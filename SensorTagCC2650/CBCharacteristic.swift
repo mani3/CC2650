@@ -20,10 +20,10 @@ extension CBCharacteristic {
             name.append("Read")
         }
         if properties.rawValue & CBCharacteristicProperties.write.rawValue != 0 {
-            name.append("WriteWithoutResponse")
+            name.append("Write")
         }
         if properties.rawValue & CBCharacteristicProperties.writeWithoutResponse.rawValue != 0 {
-            name.append("Write")
+            name.append("WriteWithoutResponse")
         }
         if properties.rawValue & CBCharacteristicProperties.notify.rawValue != 0 {
             name.append("Notify")

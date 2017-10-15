@@ -37,6 +37,9 @@ class SensorTagViewController: UIViewController {
                 if characteristic.properties.rawValue & CBCharacteristicProperties.read.rawValue != 0 {
                     self?.peripheral?.readValue(for: characteristic)
                 }
+                if characteristic.uuid.isEqual(CC2650.Characteristic.tempConfig.uuid) {
+                    self?.peripheral?.writeValue(Data([0x01]), for: characteristic, type: .withResponse)
+                }
             })
             .addDisposableTo(dispose)
     }
@@ -123,16 +126,12 @@ extension SensorTagViewController: CBPeripheralDelegate {
             return
         }
 
+        if characteristic.uuid.isEqual(CC2650.Characteristic.tempData.uuid) {
+            logView.appendLog(text: "\(characteristic.uuid.uuidString): object=\(data.object) ℃, ambience=\(data.ambience) ℃")
+        }
+
         let message: String = data.map { String(format: "%02X ", $0) }.joined()
         logView.appendLog(text: "\(characteristic.uuid.uuidString): \(message)")
-//        if let text = String(bytes: data, encoding: String.Encoding.utf8) {
-//            let message: String = "\(characteristic.uuid.uuidString): \(text)"
-//            logView.appendLog(text: "\(message)", animated: false)
-//            NSLog("%@, %@", #function, message)
-//        } else {
-//            let message: String = data.map { String(format: "%02X ", $0) }.joined()
-//            logView.appendLog(text: "\(characteristic.uuid.uuidString): \(message)")
-//        }
     }
 }
 

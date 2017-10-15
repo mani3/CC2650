@@ -137,7 +137,7 @@
 					317247C61F8D0B60007B1ECF = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 9QXK3B8LAC;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -383,7 +383,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.mani3.SensorTagCC2650;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "4efa8e05-fd9b-48b0-8c7d-9bc7a307911d";
+				PROVISIONING_PROFILE_SPECIFIER = Wildcard_Development;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -394,7 +395,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 9QXK3B8LAC;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SensorTagCC2650/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.mani3.SensorTagCC2650;

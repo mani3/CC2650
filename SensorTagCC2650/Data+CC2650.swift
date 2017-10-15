@@ -41,13 +41,13 @@ extension Data {
 // MARK: - Movement
 
 extension Data {
-    
+
     /// Calculate rotation, unit deg/s, range -250, +250
     var gyro: Float {
         let data = to(type: UInt16.self)
         return (Float(data) * 1.0) / (65536 / 500)
     }
-    
+
     /// Calculate acceleration, unit G, range ±2, ±4, ±8, ±16
     ///
     /// - Parameter range: Acceleration range ±2, ±4, ±8, ±16
@@ -57,7 +57,7 @@ extension Data {
         let accRange = Float(range.rawValue)
         return (Float(data) * 1.0) / (32768 / accRange)
     }
-    
+
     /// Calculate magnetism, unit uT, range +-4900
     var mag: Float {
         let data = to(type: UInt16.self)
@@ -68,14 +68,14 @@ extension Data {
 // MARK: - Humidity
 
 extension Data {
-    
+
     /// Calculate temperature [°C]
     var temperature: Double {
         let data = Data(self[0..<2]).to(type: UInt16.self)
         let temperature = (Double(data) / 65536) * 165 - 40
         return temperature
     }
-    
+
     /// Calculate relative humidity [%RH]
     var humidity: Double {
         let data = Data(self[0..<2]).to(type: UInt16.self) & ~0x0003
@@ -97,7 +97,7 @@ extension Data {
 // MARK: - Optical
 
 extension Data {
-    
+
     var optical: Float {
         let data = to(type: UInt16.self)
         let m = data & 0x0FFF
