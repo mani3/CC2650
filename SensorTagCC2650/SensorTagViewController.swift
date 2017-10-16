@@ -135,8 +135,6 @@ extension SensorTagViewController: CBPeripheralDelegate {
         if characteristic.uuid.isEqual(CC2650.Characteristic.tempData.uuid) {
             logView.appendLog(text: "\(characteristic.name): object=\(data.object) ℃, ambience=\(data.ambience) ℃")
         } else if characteristic.uuid.isEqual(CC2650.Characteristic.moveData.uuid) {
-            let message: String = data.map { String(format: "%02X ", $0) }.joined()
-            logView.appendLog(text: "\(characteristic.name): \(message)")
             logView.appendLog(text: "\(characteristic.name): gyro x=\(Data(data[0..<2]).gyro), y=\(Data(data[2..<4]).gyro), z=\(Data(data[4..<6]).gyro)")
             logView.appendLog(text: "\(characteristic.name): acc x=\(Data(data[6..<8]).acc()), y=\(Data(data[8..<10]).acc()), z=\(Data(data[10..<12]).acc())")
             logView.appendLog(text: "\(characteristic.name): mag x=\(Data(data[12..<14]).mag), y=\(Data(data[14..<16]).mag), z=\(Data(data[16..<18]).mag)")
@@ -146,9 +144,13 @@ extension SensorTagViewController: CBPeripheralDelegate {
             logView.appendLog(text: "\(characteristic.name): pressure=\(Data(data[3..<6]).pressure)")
         } else if characteristic.uuid.isEqual(CC2650.Characteristic.opticalData.uuid) {
             logView.appendLog(text: "\(characteristic.name): oprical=\(data.optical)")
+        } else if data.count == 1 {
+            logView.appendLog(text: "\(characteristic.name): \(String(format: "0x%02X ", data[0]))")
+        } else if let text = String(bytes: data, encoding: .utf8) {
+            logView.appendLog(text: "\(characteristic.name): \(text)")
         } else {
             let message: String = data.map { String(format: "%02X ", $0) }.joined()
-            logView.appendLog(text: "\(characteristic.uuid.uuidString): \(message)")
+            logView.appendLog(text: "\(characteristic.name): \(message)")
         }
     }
 }

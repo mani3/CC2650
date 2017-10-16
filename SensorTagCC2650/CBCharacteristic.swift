@@ -41,12 +41,13 @@ extension CBCharacteristic {
     }
 
     var name: String {
-        return uuid.uuidString[4..<8]
+        return uuid.uuidString[4..<8] ?? uuid.uuidString
     }
 }
 
 extension String {
-    subscript(_ range: CountableRange<Int>) -> String {
+    subscript(_ range: CountableRange<Int>) -> String? {
+        guard unicodeScalars.count >= range.upperBound else { return nil }
         let idx1 = index(startIndex, offsetBy: range.lowerBound)
         let idx2 = index(startIndex, offsetBy: range.upperBound)
         return self[idx1..<idx2]

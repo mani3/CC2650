@@ -83,7 +83,7 @@ class ViewController: UIViewController {
         if !centralManager.isScanning {
             centralManager.scanForPeripherals(withServices: nil, options: nil)
 
-            DispatchQueue.main.asyncAfter(deadline: .now() + 10) { [weak self] in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4) { [weak self] in
                 self?.centralManager.stopScan()
                 self?.refreshControl.endRefreshing()
             }
