@@ -37,8 +37,14 @@ class SensorTagViewController: UIViewController {
                 if characteristic.properties.rawValue & CBCharacteristicProperties.read.rawValue != 0 {
                     self?.peripheral?.readValue(for: characteristic)
                 }
-                if characteristic.uuid.isEqual(CC2650.Characteristic.tempConfig.uuid) {
+                if characteristic.uuid.isEqual(CC2650.Characteristic.tempConfig.uuid)
+                    || characteristic.uuid.isEqual(CC2650.Characteristic.humidityConfig.uuid)
+                    || characteristic.uuid.isEqual(CC2650.Characteristic.pressureConfig.uuid)
+                    || characteristic.uuid.isEqual(CC2650.Characteristic.opticalConfig.uuid) {
                     self?.peripheral?.writeValue(Data([0x01]), for: characteristic, type: .withResponse)
+                }
+                if characteristic.uuid.isEqual(CC2650.Characteristic.moveConfig.uuid) {
+                    self?.peripheral?.writeValue(Data([0xFF, 0x00]), for: characteristic, type: .withResponse)
                 }
             })
             .addDisposableTo(dispose)
@@ -127,11 +133,23 @@ extension SensorTagViewController: CBPeripheralDelegate {
         }
 
         if characteristic.uuid.isEqual(CC2650.Characteristic.tempData.uuid) {
-            logView.appendLog(text: "\(characteristic.uuid.uuidString): object=\(data.object) ℃, ambience=\(data.ambience) ℃")
+            logView.appendLog(text: "\(characteristic.name): object=\(data.object) ℃, ambience=\(data.ambience) ℃")
+        } else if characteristic.uuid.isEqual(CC2650.Characteristic.moveData.uuid) {
+            let message: String = data.map { String(format: "%02X ", $0) }.joined()
+            logView.appendLog(text: "\(characteristic.name): \(message)")
+            logView.appendLog(text: "\(characteristic.name): gyro x=\(Data(data[0..<2]).gyro), y=\(Data(data[2..<4]).gyro), z=\(Data(data[4..<6]).gyro)")
+            logView.appendLog(text: "\(characteristic.name): acc x=\(Data(data[6..<8]).acc()), y=\(Data(data[8..<10]).acc()), z=\(Data(data[10..<12]).acc())")
+            logView.appendLog(text: "\(characteristic.name): mag x=\(Data(data[12..<14]).mag), y=\(Data(data[14..<16]).mag), z=\(Data(data[16..<18]).mag)")
+        } else if characteristic.uuid.isEqual(CC2650.Characteristic.humidityData.uuid) {
+            logView.appendLog(text: "\(characteristic.name): temp=\(data.temperature), humidity=\(data.humidity)")
+        } else if characteristic.uuid.isEqual(CC2650.Characteristic.pressureData.uuid) {
+            logView.appendLog(text: "\(characteristic.name): pressure=\(Data(data[3..<6]).pressure)")
+        } else if characteristic.uuid.isEqual(CC2650.Characteristic.opticalData.uuid) {
+            logView.appendLog(text: "\(characteristic.name): oprical=\(data.optical)")
+        } else {
+            let message: String = data.map { String(format: "%02X ", $0) }.joined()
+            logView.appendLog(text: "\(characteristic.uuid.uuidString): \(message)")
         }
-
-        let message: String = data.map { String(format: "%02X ", $0) }.joined()
-        logView.appendLog(text: "\(characteristic.uuid.uuidString): \(message)")
     }
 }
 

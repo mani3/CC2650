@@ -44,7 +44,7 @@ extension Data {
 
     /// Calculate rotation, unit deg/s, range -250, +250
     var gyro: Float {
-        let data = to(type: UInt16.self)
+        let data = to(type: Int16.self)
         return (Float(data) * 1.0) / (65536 / 500)
     }
 
@@ -53,14 +53,14 @@ extension Data {
     /// - Parameter range: Acceleration range ±2, ±4, ±8, ±16
     /// - Returns: acceleration value
     func acc(range: AccelerationRange = .range2G) -> Float {
-        let data = to(type: UInt16.self)
+        let data = to(type: Int16.self)
         let accRange = Float(range.rawValue)
         return (Float(data) * 1.0) / (32768 / accRange)
     }
 
     /// Calculate magnetism, unit uT, range +-4900
     var mag: Float {
-        let data = to(type: UInt16.self)
+        let data = to(type: Int16.self)
         return (Float(data) * 1.0)
     }
 }
@@ -78,7 +78,7 @@ extension Data {
 
     /// Calculate relative humidity [%RH]
     var humidity: Double {
-        let data = Data(self[0..<2]).to(type: UInt16.self) & ~0x0003
+        let data = Data(self[2..<4]).to(type: UInt16.self) & ~0x0003
         let humidity = (Double(data) / 65536) * 100
         return humidity
     }

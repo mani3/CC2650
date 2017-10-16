@@ -39,4 +39,16 @@ extension CBCharacteristic {
         }
         return name.joined(separator: ", ")
     }
+
+    var name: String {
+        return uuid.uuidString[4..<8]
+    }
+}
+
+extension String {
+    subscript(_ range: CountableRange<Int>) -> String {
+        let idx1 = index(startIndex, offsetBy: range.lowerBound)
+        let idx2 = index(startIndex, offsetBy: range.upperBound)
+        return self[idx1..<idx2]
+    }
 }
